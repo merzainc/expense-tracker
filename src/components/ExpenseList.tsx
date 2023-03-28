@@ -28,11 +28,24 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
             <td>{expense.amount}</td>
             <td>{expense.category}</td>
             <td>
-              <button className='btn btn-outline-danger btn-sm'>Remove</button>
+              <button
+                onClick={() => onRemove(expense.id)}
+                className='btn btn-outline-danger btn-sm'
+              >
+                Remove
+              </button>
             </td>
           </tr>
         ))}
       </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td colSpan={2}>
+            {expenses.reduce((acc, expense) => acc + expense.amount, 0)}
+          </td>
+        </tr>
+      </tfoot>
     </table>
   );
 };

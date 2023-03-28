@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ExpenseFilter from './components/ExpenseFilter';
 import ExpenseList from './components/ExpenseList';
 
 /** initial state object */
@@ -14,7 +15,16 @@ function App() {
     setExpenses(expenses.filter((expense) => expense.id !== id));
   };
 
-  return <ExpenseList expenses={expenses} onRemove={removeExpense} />;
+  const handleSelectedCategory = (category: string) => {
+    setExpenses(expenses.filter((e) => e.category === category));
+  };
+
+  return (
+    <div className='container'>
+      <ExpenseFilter onSelectCategory={handleSelectedCategory} />
+      <ExpenseList expenses={expenses} onRemove={removeExpense} />
+    </div>
+  );
 }
 
 export default App;

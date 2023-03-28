@@ -42,7 +42,10 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
         <tr>
           <td>Total</td>
           <td colSpan={2}>
-            {expenses.reduce((acc, expense) => acc + expense.amount, 0)}
+            $
+            {expenses
+              .reduce((acc, expense) => acc + expense.amount, 0)
+              .toFixed(2)}
           </td>
         </tr>
       </tfoot>

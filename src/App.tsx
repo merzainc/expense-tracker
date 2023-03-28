@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import ExpenseList from './components/ExpenseList';
 
-interface Expense {
-  id: number;
-  desc: string;
-  amount: number;
-  category: string;
-}
-
 /** initial state object */
 const initialExpenses = [
   { id: 1, desc: 'Rent', amount: 75, category: 'Utilities' },

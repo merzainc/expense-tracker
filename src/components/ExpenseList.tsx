@@ -11,6 +11,13 @@ interface Props {
 }
 
 const ExpenseList = ({ expenses, onRemove }: Props) => {
+  if (expenses.length === 0)
+    return (
+      <p className='text-primary text-center font-roboto'>
+        No expenses were found, add an expense !!
+      </p>
+    );
+
   return (
     <table className='table table-bordered table-sm'>
       <thead className='thead'>
@@ -38,7 +45,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
           </tr>
         ))}
       </tbody>
-      <tfoot>
+      <tfoot className='font-roboto'>
         <tr>
           <td>Total</td>
           <td colSpan={3}>

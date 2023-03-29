@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import ExpenseFilter from './components/ExpenseFilter';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
-import ExpenseFilter from './components/ExpenseFilter';
+import categories from './categories';
 
 /** initial state object */
 const initialExpenses = [
@@ -25,7 +26,11 @@ function App() {
   return (
     <div className='container'>
       <h3 className='text-center mt-2 text-secondary'>Expense Tracker</h3>
-      <ExpenseForm />
+      <ExpenseForm
+        onSubmit={(expense) =>
+          setExpenses([{ id: expenses.length + 1, ...expense }, ...expenses])
+        }
+      />
       <ExpenseFilter onSelectCategory={(category) => setCategory(category)} />
       <ExpenseList expenses={summary} onRemove={removeExpense} />
     </div>

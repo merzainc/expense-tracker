@@ -13,13 +13,13 @@ interface Props {
 const ExpenseList = ({ expenses, onRemove }: Props) => {
   if (expenses.length === 0)
     return (
-      <p className='text-primary text-center font-roboto'>
+      <p className='text-primary text-center'>
         No expenses were found, add an expense !!
       </p>
     );
 
   return (
-    <table className='table table-bordered table-sm'>
+    <table className='table table-bordered'>
       <thead className='thead'>
         <tr>
           <th scope='col'>Description</th>
@@ -37,7 +37,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
             <td>
               <button
                 onClick={() => onRemove(expense.id)}
-                className='btn btn-outline-danger btn-sm font-roboto'
+                className='btn btn-outline-danger btn-sm'
               >
                 Remove
               </button>
@@ -45,7 +45,7 @@ const ExpenseList = ({ expenses, onRemove }: Props) => {
           </tr>
         ))}
       </tbody>
-      <tfoot className='font-roboto'>
+      <tfoot>
         <tr>
           <td>Total</td>
           <td colSpan={3}>
